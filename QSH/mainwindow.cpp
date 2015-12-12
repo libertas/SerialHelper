@@ -52,6 +52,15 @@ int MainWindow::send_uart()
     if(serial->isOpen()) {
         QByteArray data = ui->editor->toPlainText().toUtf8();
         serial->write(data);
+        QString ending = ui->ending->text().toUtf8();
+        if(ending.compare("\\n"))
+            serial->write("\n");
+        else if(ending.compare("\\r"))
+            serial->write("\r");
+        else if(ending.compare("\\n\\r"))
+            serial->write("\n\r");
+        else if(ending.compare("\\r\\n"))
+            serial->write("\r\n");
     } else {
         ui->statusBar->showMessage("Not connected!!", 3000);
     }
