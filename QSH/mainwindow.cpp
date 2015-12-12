@@ -21,8 +21,8 @@ int MainWindow::toggle_serial_port()
     if (serial->isOpen())
     {
         serial->close();
-        ui->toggle->setText("Open");
-        ui->statusBar->showMessage("Closed", 3000);
+        ui->toggle->setText("Connect");
+        ui->statusBar->showMessage("Disconnected", 3000);
         return 0;
     }
 
@@ -37,10 +37,10 @@ int MainWindow::toggle_serial_port()
 
     if (serial->open(QIODevice::ReadWrite)) {
         ui->statusBar->showMessage("Connected");
-        ui->toggle->setText("Close");
+        ui->toggle->setText("Disconnect");
 
     } else {
-        ui->toggle->setText("Open");
+        ui->toggle->setText("Connect");
         ui->statusBar->showMessage("Error", 3000);
     }
 
@@ -49,8 +49,13 @@ int MainWindow::toggle_serial_port()
 
 int MainWindow::send_uart()
 {
-    QByteArray data = ui->editor->toPlainText().toUtf8();
-    serial->write(data);
+    if(serial->isOpen()) {
+        QByteArray data = ui->editor->toPlainText().toUtf8();
+        serial->write(data);
+    } else {
+        ui->statusBar->showMessage("Not connected!!", 3000);
+    }
+
     return 0;
 }
 
