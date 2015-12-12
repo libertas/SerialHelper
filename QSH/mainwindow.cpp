@@ -12,3 +12,13 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+int MainWindow::open_serial_port()
+{
+    return 0;
+}
+
+int MainWindow::send_uart()
+{
+    return 0;
+}

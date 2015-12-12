@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+public slots:
+    int open_serial_port();
+    int send_uart();
 };
 
 #endif // MAINWINDOW_H
