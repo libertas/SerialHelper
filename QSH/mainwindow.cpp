@@ -21,7 +21,7 @@ int MainWindow::toggle_serial_port()
     if (serial->isOpen())
     {
         serial->close();
-        ui->toggle->setText("Connect");
+        ui->toggle->setText("&Connect");
         ui->statusBar->showMessage("Disconnected", 3000);
         return 0;
     }
@@ -37,11 +37,11 @@ int MainWindow::toggle_serial_port()
 
     if (serial->open(QIODevice::ReadWrite)) {
         ui->statusBar->showMessage("Connected");
-        ui->toggle->setText("Disconnect");
+        ui->toggle->setText("Dis&connect");
 
     } else {
-        ui->toggle->setText("Connect");
-        ui->statusBar->showMessage("Error", 3000);
+        ui->toggle->setText("&Connect");
+        ui->statusBar->showMessage("Error:cannot open uart", 3000);
     }
 
     return 0;
