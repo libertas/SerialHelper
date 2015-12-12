@@ -39,7 +39,7 @@
      <rect>
       <x>680</x>
       <y>340</y>
-      <width>71</width>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
@@ -75,7 +75,7 @@
      <rect>
       <x>680</x>
       <y>380</y>
-      <width>71</width>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
@@ -141,8 +141,8 @@
      <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>800</x>
-     <y>409</y>
+     <x>625</x>
+     <y>377</y>
     </hint>
    </hints>
   </connection>
@@ -157,8 +157,8 @@
      <y>418</y>
     </hint>
     <hint type="destinationlabel">
-     <x>639</x>
-     <y>412</y>
+     <x>617</x>
+     <y>433</y>
     </hint>
    </hints>
   </connection>
