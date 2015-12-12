@@ -24,6 +24,7 @@ public slots:
     int toggle_serial_port();
     int send_uart();
     void read_uart();
+    void clear();
 };
 
 #endif // MAINWINDOW_H

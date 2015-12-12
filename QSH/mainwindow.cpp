@@ -72,3 +72,8 @@ void MainWindow::read_uart()
 {
     ui->browser->append(serial->readAll());
 }
+
+void MainWindow::clear()
+{
+    ui->browser->setText("");
+}
