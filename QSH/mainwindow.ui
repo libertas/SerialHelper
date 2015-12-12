@@ -14,7 +14,7 @@
    <string>QSH</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="browser">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="editor">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -34,7 +34,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="baud">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -57,7 +57,7 @@
      <string>Baud</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="send">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -70,7 +70,7 @@
      <string>Send</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="port">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -93,7 +93,7 @@
      <string>Port</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="toggle">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -131,10 +131,10 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>toggle</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>open_serial_port()</slot>
+   <slot>toggle_serial_port()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>705</x>
@@ -147,7 +147,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>send</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>send_uart()</slot>
@@ -164,7 +164,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>open_serial_port()</slot>
+  <slot>toggle_serial_port()</slot>
   <slot>send_uart()</slot>
  </slots>
 </ui>
