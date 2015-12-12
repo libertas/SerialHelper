@@ -23,7 +23,7 @@ private:
 public slots:
     int toggle_serial_port();
     int send_uart();
-    void read_data();
+    void read_uart();
 };
 
 #endif // MAINWINDOW_H

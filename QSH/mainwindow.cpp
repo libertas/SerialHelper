@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     serial = new QSerialPort(this);
-    connect(serial, SIGNAL(readyRead()), this, SLOT(read_data()));
+    connect(serial, SIGNAL(readyRead()), this, SLOT(read_uart()));
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +18,14 @@ MainWindow::~MainWindow()
 
 int MainWindow::toggle_serial_port()
 {
+    if (serial->isOpen())
+    {
+        serial->close();
+        ui->toggle->setText("Open");
+        ui->statusBar->showMessage("Closed", 3000);
+        return 0;
+    }
+
     QString port = ui->port->text();
     int baud = ui->baud->text().toInt();
     serial->setBaudRate(baud);
@@ -33,7 +41,7 @@ int MainWindow::toggle_serial_port()
 
     } else {
         ui->toggle->setText("Open");
-        ui->statusBar->showMessage("Error");
+        ui->statusBar->showMessage("Error", 3000);
     }
 
     return 0;
@@ -41,9 +49,12 @@ int MainWindow::toggle_serial_port()
 
 int MainWindow::send_uart()
 {
+    QByteArray data = ui->editor->toPlainText().toUtf8();
+    serial->write(data);
     return 0;
 }
 
-void MainWindow::read_data()
+void MainWindow::read_uart()
 {
+    ui->browser->append(serial->readAll());
 }
